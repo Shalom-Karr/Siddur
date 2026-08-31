@@ -3,6 +3,11 @@
 A single-file, offline Hebrew siddur that runs in any browser. No JavaScript, no network
 requests, no dependencies — the fonts and the full text are embedded directly in the HTML,
 so it works on kosher phones, dumbphones, and anything else with a browser.
+
+**`index.html` is the current build.** It merges the two source builds below: the full
+iVelt-derived text (38 sections, ~2,600 paragraphs of pointed Nusach Sefard) with the
+warmer parchment color scheme of the Metsudah-based build, and adds a navigation layer on
+top — all still without a single line of JavaScript.
  
 ## Credits and origin
  
@@ -39,27 +44,41 @@ Tikkun HaKlali; and the full Tehillim.
 ## Features
  
 - Fully vowelized text throughout
-- Section jump menu in the top bar of every service
-- Light / dark / auto theme
-- Three text sizes and three line-spacing settings
-- Multiple font choices
+- **Hamburger sidebar** — every tefillah reachable from anywhere, grouped by category,
+  with the current section highlighted. Slides in as a drawer on phones; on screens
+  1100px and wider it stays open as a permanent sidebar.
+- **Section jump menu** in the top bar of every service — a dropdown listing every
+  sub-section (in Tehillim, all 150 perakim) that scrolls you straight to it
+- Light / dark / auto theme (auto follows the device setting)
+- Four text sizes and three line-spacing settings
+- Five font choices (Times New Roman is the default; Vilna, SF Hebrew, and native
+  sans/serif also embedded or referenced)
+- **Responsive from dumbphone to big tablet** — text sizes step up automatically on
+  larger screens, the home grid grows to 3–4 columns, and the reading column stays at
+  a comfortable measure instead of stretching across a 13" display
 - Works completely offline — save the file and open it
+- Still **zero JavaScript**: every control (drawer, dropdowns, themes, sizes) is
+  CSS-only, so it runs on browsers with scripts disabled or unavailable. The one
+  tradeoff: settings can't persist across reloads without JS, so each open starts
+  from the defaults.
 ## Usage
  
 Save the `.html` file to the device and open it in the browser. That's the whole install.
 It can also be hosted on any static web server or served from a local file path.
  
-## Font licensing — read before redistributing
+## Font licensing
  
-Some builds embed **Times New Roman** (Monotype) and **SF Hebrew** (Apple) as base64 data
-URIs. Neither license permits redistributing the font files, which is exactly what
-base64-embedding does. Before sharing this publicly, replace them with open alternatives:
+This build deliberately keeps **Times New Roman** (Monotype) and **SF Hebrew** (Apple)
+embedded as base64 data URIs, because Times New Roman is the intended reading face and
+must render identically on devices that don't ship it. Be aware that neither vendor's
+license permits redistributing font files, which is what base64-embedding amounts to —
+that risk is accepted for this repo. If you fork this and want to be clean on licensing,
+swap them for open alternatives:
  
 - Noto Serif Hebrew (SIL OFL)
 - Frank Ruehl CLM (GPL with font exception)
 - Taamey D / Taamey Frank CLM (SIL OFL)
-This also cuts a large chunk off the file size — the embedded fonts alone account for
-roughly 550 KB.
+Doing so also cuts roughly 550 KB off the file size.
  
 ## Text attribution
  
