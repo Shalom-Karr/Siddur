@@ -1,5 +1,5 @@
-# סידור — Offline HTML Siddur
- 
+# Offline HTML Siddur - סידור
+
 A single-file, offline Hebrew siddur that runs in any browser. No JavaScript, no network
 requests, no dependencies — the fonts and the full text are embedded directly in the HTML,
 so it works on kosher phones, dumbphones, and anything else with a browser.
