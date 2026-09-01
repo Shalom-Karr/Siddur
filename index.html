@@ -1071,6 +1071,28 @@ body:has(#menu-open:checked){overflow:hidden}
 
 /* ── overflow-wrap safety for XL size + long unbroken strings ─────────────────*/
 .reading-body,.section-heading{overflow-wrap:anywhere}
+
+/* ==== round5: settings sheet rebuild + justified text ==== */
+/* The source build's settings-layout rules target .settings-modal-sheet, a class
+   that never existed in the markup (.settings-sheet). The sheet therefore
+   rendered raw RTL: English flowing right-to-left, labels and chips mirrored.
+   These rules rebuild the layout against the real class. */
+.settings-sheet{direction:ltr!important;text-align:left!important;width:min(460px,calc(100vw - 20px))!important;padding:10px!important}
+.settings-sheet .setting-row{display:grid!important;grid-template-columns:96px minmax(0,1fr)!important;align-items:center!important;gap:8px 12px!important;padding:13px 6px!important;direction:ltr!important;border-bottom:1px solid var(--line)}
+.settings-sheet .setting-row:last-of-type{border-bottom:0}
+.settings-sheet .setting-name{font-family:Arial,sans-serif!important;font-size:10.5px!important;font-weight:800!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:var(--muted)!important;text-align:left!important;white-space:normal!important;width:auto!important;min-width:0!important}
+.settings-sheet .choice-row{display:flex!important;flex-wrap:wrap!important;gap:6px!important;justify-content:flex-start!important;direction:ltr!important}
+.settings-sheet .choice{min-width:0!important;min-height:34px!important;height:auto!important;padding:7px 13px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border:1px solid var(--line)!important;border-radius:999px!important;background:transparent!important;font-family:Arial,sans-serif!important;font-size:12px!important;font-weight:600!important;line-height:1.15!important;text-align:center!important;white-space:nowrap!important;color:var(--ink)}
+.settings-sheet .setting-hint{grid-column:1/-1!important;direction:ltr!important;text-align:left!important;font:italic 11px/1.5 Arial,sans-serif!important;color:var(--muted)!important;margin:0!important;padding:0!important}
+.settings-modal-head{direction:ltr!important}
+.settings-modal-head strong{font-family:Arial,sans-serif!important;font-size:15px!important}
+.settings-about{margin-top:10px!important;padding:12px 6px 4px!important;border-top:1px solid var(--line)!important}
+@media(max-width:420px){.settings-sheet .setting-row{grid-template-columns:80px minmax(0,1fr)!important}}
+
+/* Justified prayer text, as a printed siddur sets it. Last line ends at the
+   right margin (text-align-last start under RTL); headings keep their own
+   centered alignment from earlier rules. */
+.reading-body{text-align:justify;text-align-last:start}
 </style></head><body><!--
 Source basis: "Siddur - Fixed.txt" (Siddur Sefard / סידור ספרד), merged source text.
 Source file notes Torat Emet 357 and The Metsudah siddur (1981), among its source versions.
@@ -1106,7 +1128,7 @@ This standalone build intentionally contains only the pointed Sefard text. No al
    <div class="choice-row"><label class="choice" for="font-sans">Native Sans</label><label class="choice" for="font-serif">Native Serif</label><label class="choice" for="font-times">Times New Roman</label><label class="choice" for="font-sf">SF Pro</label><label class="choice" for="font-vilna">Vilna</label></div>
   </div>
   <div class="setting-row"><span class="setting-name">Headings</span>
-   <div class="choice-row"><label class="choice" for="headings-on">Headings</label></div>
+   <div class="choice-row"><label class="choice" for="headings-on">Show</label></div>
   </div>
  <div class="settings-about"><div class="settings-credit">אהערגעשטעלט דורך ׳שוואכע מעשיות - אייוועלט׳</div></div></div>
 </div>

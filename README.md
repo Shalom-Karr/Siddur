@@ -43,7 +43,10 @@ Tikkun HaKlali; and the full Tehillim.
  
 ## Features
  
-- Fully vowelized text throughout
+- Fully vowelized text throughout, set **justified** as a printed siddur is
+- **Nusach picker (Sefard / Ashkenaz)** — Ashkenaz swaps in the Metsudah text for
+  weekday Shacharis, Mincha, Maariv and Birkas HaMazon, with an אשכנז badge in the
+  top bar; all other sections are Sefard-only and the setting says so
 - **Hamburger sidebar** — every tefillah reachable from anywhere, grouped by category,
   with the current section highlighted. Slides in as a drawer on phones; on screens
   1100px and wider it stays open as a permanent sidebar.
@@ -65,6 +68,19 @@ Tikkun HaKlali; and the full Tehillim.
  
 Save the `.html` file to the device and open it in the browser. That's the whole install.
 It can also be hosted on any static web server or served from a local file path.
+
+## Hosted version
+
+The build deploys to Cloudflare Pages (project `siddur`, direct upload — no build step):
+
+- <https://siddur.shalomkarr.com> (custom domain)
+- <https://siddur-3zx.pages.dev> (Pages URL)
+
+To publish a new version after changing `index.html`:
+
+```
+wrangler pages deploy <dir containing index.html> --project-name siddur --branch main
+```
  
 ## Font licensing
  
