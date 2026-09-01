@@ -80,6 +80,51 @@ swap them for open alternatives:
 - Taamey D / Taamey Frank CLM (SIL OFL)
 Doing so also cuts roughly 550 KB off the file size.
  
+## Accessibility & printing
+
+### Keyboard navigation
+
+Hidden `<input class="state">` elements drive the CSS state machine and remain in the
+browser tab order (they are not `display:none` or `visibility:hidden`). Pressing Tab
+cycles through them; Space toggles the focused input. Round 4 adds `:focus-visible`
+rings on the visible label that corresponds to each focused input — 60 selectors
+covering all nav, theme, size, spacing, font, nusach, and checkbox inputs. The
+hamburger button, gear button, jump-menu summary, jump-list links, and back-to-top
+anchor also receive `:focus-visible` outlines.
+
+### Colour contrast (WCAG AA)
+
+All pairs tested in both light and dark themes pass WCAG AA:
+
+| Element | Foreground | Background | Ratio | Level |
+|---|---|---|---|---|
+| Body text (light) | `#1d1a15` | `#f6f2e8` | 15.5:1 | AAA |
+| Muted / rubric (light) | `#6f695e` | `#f6f2e8` | 4.87:1 | AA |
+| Muted on card (light) | `#6f695e` | `#fffdf7` | 5.35:1 | AA |
+| Category labels (light) | `#6b3a2a` | `#f6f2e8` | 8.30:1 | AAA |
+| Body text (dark) | `#efece4` | `#111114` | 16.0:1 | AAA |
+| Muted / rubric (dark) | `#9c968b` | `#111114` | 6.42:1 | AA |
+| Muted on card (dark) | `#9c968b` | `#1b1b1f` | 5.84:1 | AA |
+| Category labels (dark) | `#d09a7f` | `#111114` | 7.73:1 | AAA |
+
+No palette changes were required.
+
+### Printing
+
+`@media print` hides all chrome (topbars, drawer, settings panel, intro screen,
+jump menus, back-to-top buttons) and overrides colours to black on white. The CSS
+state machine's `:checked` selectors apply normally in print mode, so the currently
+active section appears and all others remain hidden — no JS needed. Page breaks are
+advised before section headings via `break-after:avoid`. Print was verified by
+reasoning from the CSS cascade; browser print-preview was not automated.
+
+### ARIA
+
+- `<nav class="side-list" aria-label="ניווט">` — the drawer navigation list.
+- `<div class="settings-sheet" lang="en">` — the settings panel is labelled English.
+- All 42 `.end-orn` decorative ornaments carry `aria-hidden="true"`.
+- The drawer scrim and close labels already had `aria-label` from prior rounds.
+
 ## Text attribution
  
 If the Hebrew text originates from Sefaria, the CC-BY license requires attribution in the
