@@ -30,8 +30,9 @@ Everything here is derived from those two. Any bugs in this version are mine, no
 - One of the source builds credits its Hebrew text to **the Metsudah Siddur via Sefaria**
   (CC-BY) and uses **Noto Serif Hebrew** (SIL Open Font License).
 - One of the source builds carries the Yiddish credit line
-  *אהערגעשטעלט דורך ׳שוואכע מעשיות - אייוועלט׳* and is dedicated
-  *לע״נ מרן רבינו יואל ב״ר חנני׳ יום טוב זצוקללה״ה*. That dedication is preserved.
+  *אהערגעשטעלט דורך ׳שוואכע מעשיות - אייוועלט׳* (still shown in the settings footer)
+  and a memorial dedication on its start screen. In this build the start screen
+  instead credits the adaptation ("Modified by Shalom Karr").
 ## What's included
  
 Weekday Shacharis, Mincha, Maariv and Maariv for Motzei Shabbos; Sefiras HaOmer; Kiddush
@@ -44,9 +45,11 @@ Tikkun HaKlali; and the full Tehillim.
 ## Features
  
 - Fully vowelized text throughout, set **justified** as a printed siddur is
-- **Nusach picker (Sefard / Ashkenaz)** — Ashkenaz swaps in the Metsudah text for
-  weekday Shacharis, Mincha, Maariv and Birkas HaMazon, with an אשכנז badge in the
-  top bar; all other sections are Sefard-only and the setting says so
+- **Nusach picker (Sefard / Ashkenaz)** — chosen right on the start screen (picking
+  one enters the siddur), changeable any time in Settings. Ashkenaz swaps in the
+  Metsudah text for weekday Shacharis, Mincha, Maariv and Birkas HaMazon, with an
+  אשכנז badge in the top bar; all other sections are Sefard-only and the setting
+  says so
 - **Hamburger sidebar** — every tefillah reachable from anywhere, grouped by category,
   with the current section highlighted. Slides in as a drawer on phones; on screens
   1100px and wider it stays open as a permanent sidebar.
